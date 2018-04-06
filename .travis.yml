@@ -6,6 +6,9 @@ go:
   - "1.9"
   - "1.10"
   
+before_install:
+  - chmod +x go.test.sh
+  
 script:
   - ./go.test.sh
 
