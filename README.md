@@ -25,6 +25,52 @@ $ go get github.com/kplachkov/btcprice/
 $ godoc github.com/kplachkov/btcprice/
 ```
 
+**Example:**
+```go
+package main
+
+import (
+	"fmt"
+	"github.com/kplachkov/btcprice"
+	"log"
+	"time"
+)
+
+// Prints the time and the price of Bitcoin.
+func printBtcPriceAndTime(btcPrice float64, t time.Time) {
+	fmt.Println(t.Format(time.RFC3339))
+	fmt.Println("Bitcoin price:", btcPrice)
+}
+
+// Checks for changes in the price of Bitcoin.
+func checkBtcPrice(timeDuration time.Duration) {
+	blockchain, serErr := btcprice.NewBlockchainService()
+	if serErr != nil {
+		log.Fatal(serErr)
+	}
+	btcPrice := blockchain.BitcoinPrice.Usd.Last // The latest price of Bitcoin.
+	printBtcPriceAndTime(btcPrice, time.Now())
+	// Prints the time and the latest Bitcoin price if the price has changed.
+	for t := range time.NewTicker(timeDuration).C {
+		newBtcErr := blockchain.Update(nil)
+		if newBtcErr != nil {
+			log.Fatal(newBtcErr)
+		}
+		newBtcPrice := blockchain.BitcoinPrice.Usd.Last
+		// If the price has changed, it prints the time and up to date price.
+		if btcPrice != newBtcPrice {
+			printBtcPriceAndTime(newBtcPrice, t)
+		}
+		btcPrice = newBtcPrice
+	}
+}
+
+func main() {
+	checkBtcPrice(time.Second) // Check the price of Bitcoin every second.
+}
+
+```
+
 ## License
 
 BSD 3-Clause
