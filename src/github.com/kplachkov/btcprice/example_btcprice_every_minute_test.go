@@ -1,14 +1,13 @@
-package btcprice_test
+package btcprice
 
 import (
 	"fmt"
-	"github.com/kplachkov/btcprice"
 	"log"
 	"time"
 )
 
 func Example() {
-	blockchain, serErr := btcprice.NewBlockchainService()
+	blockchain, serErr := NewBlockchainService()
 	if serErr != nil {
 		log.Fatal(serErr)
 	}
