@@ -25,7 +25,7 @@ $ go get github.com/kplachkov/btcprice/
 $ godoc github.com/kplachkov/btcprice/
 ```
 
-**Example:**
+### Code Example:
 ```go
 package main
 
