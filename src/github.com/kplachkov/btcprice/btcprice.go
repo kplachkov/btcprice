@@ -1,4 +1,4 @@
-// Btcprice is a fast, simple and clean package for getting the price of Bitcoin.
+// Package btcprice is a fast, simple and clean way to get the price of Bitcoin.
 // The package uses the Blockchain API as a source of the price. Btcprice can be
 // used with custom source of data too.
 package btcprice
@@ -11,7 +11,7 @@ import (
 	"time"
 )
 
-// Different types of price.
+// Price holds the different types of prices.
 type Price struct {
 	Market float64 `json:"15m"`  // 15 minutes delayed market price.
 	Last   float64 `json:"last"` // The most recent market price.
@@ -19,7 +19,7 @@ type Price struct {
 	Sell   float64 `json:"sell"` // Sell price.
 }
 
-// Prices in specific currency.
+// PriceCurrency holds the price of the cryptocurrency in different fiat currencies.
 type PriceCurrency struct {
 	Usd Price `json:"USD"` // Prices in USD.
 }
@@ -29,7 +29,7 @@ type Blockchain struct {
 	BitcoinPrice PriceCurrency
 }
 
-// Returns a new Blockchain structure with up to date prices.
+// NewBlockchainService returns a new Blockchain structure with up to date prices.
 func NewBlockchainService() (*Blockchain, error) {
 	blockchain := Blockchain{}
 	err := blockchain.Update(nil)
@@ -66,7 +66,7 @@ func (Blockchain) fetchBytes(resBody io.ReadCloser) ([]byte, error) {
 	return body, readErr
 }
 
-// Updates the price of Bitcoin from the Blockchain API.
+// Update the price of Bitcoin from the Blockchain API.
 // The price can be updated from a custom source too.
 // Example for a normal use of Update:
 // 	blockchain.BitcoinPrice.Usd.Last // 5000.4
