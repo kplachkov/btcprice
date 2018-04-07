@@ -9,7 +9,6 @@ go:
 before_install:
   - chmod +x go.test.sh
   - go get -t -v ./...
-  - go get -t -v github.com/kplachkov/btcprice
   
 script:
   - ./go.test.sh
