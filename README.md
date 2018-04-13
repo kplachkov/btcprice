@@ -2,8 +2,8 @@
 
 [![Codecov](https://img.shields.io/codecov/c/github/kplachkov/btcprice.svg?style=flat-square)](https://codecov.io/gh/kplachkov/btcprice)
 [![Build Status](https://img.shields.io/travis/kplachkov/btcprice.svg?style=flat-square)](https://travis-ci.org/kplachkov/btcprice)
-[![GitHub release](https://img.shields.io/github/release/kplachkov/btcprice.svg?style=flat-square)](https://github.com/kplachkov/btcprice/releases)
 [![Go Report Card](https://goreportcard.com/badge/github.com/kplachkov/btcprice?style=flat-square)](https://goreportcard.com/report/github.com/kplachkov/btcprice)
+[![GitHub release](https://img.shields.io/github/release/kplachkov/btcprice.svg?style=flat-square)](https://github.com/kplachkov/btcprice/releases)
 
 **Btcprice** is a fast, simple and clean way to get the price of Bitcoin. The package uses the Blockchain API as a source of the price. Btcprice can be used with custom source of data too.
 
