@@ -1,4 +1,4 @@
-<p align="center"><img src="image/Btcprice.png" alt="Btcprice"></p>
+<p align="center"><img src="image/btcprice.png" alt="btcprice"></p>
 
 [![Codecov](https://img.shields.io/codecov/c/github/kplachkov/btcprice.svg?style=flat-square)](https://codecov.io/gh/kplachkov/btcprice)
 [![Build Status](https://img.shields.io/travis/kplachkov/btcprice.svg?style=flat-square)](https://travis-ci.org/kplachkov/btcprice)
@@ -35,9 +35,10 @@ package main
 
 import (
 	"fmt"
-	"github.com/kplachkov/btcprice"
 	"log"
 	"time"
+
+	"github.com/kplachkov/btcprice"
 )
 
 // Prints the time and the price of Bitcoin.
